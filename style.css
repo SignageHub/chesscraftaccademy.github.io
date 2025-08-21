@@ -1,0 +1,89 @@
+/* Custom CSS for a better look and feel, and for animations */
+
+/* Define CSS variables for colors to easily manage the theme */
+:root {
+    --color-black: #000000;
+    --color-dark-green: #004d00;
+    --color-light-green: #006400;
+    --color-dark-yellow: #cc9900;
+    --color-bright-yellow: #ffcc00;
+}
+
+body {
+    /* Set the font and background color for the entire body */
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-black);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* --- Custom CSS for Animations and Gradients --- */
+.header-bg {
+    /* Apply a subtle gradient to the header for a polished look */
+    background: linear-gradient(180deg, var(--color-dark-green) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.hero-bg {
+    /* Apply a gradient to the hero section */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--color-black) 100%);
+}
+
+.cta-button {
+    /* Add a smooth transition and shadow to the call-to-action button */
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--color-bright-yellow);
+}
+
+.cta-button:hover {
+    /* Enhance the shadow and lift the button on hover */
+    box-shadow: 0 0 20px var(--color-bright-yellow), 0 0 40px var(--color-bright-yellow);
+    transform: translateY(-5px);
+}
+
+/* Keyframe animation for subtle pulsing glow on the hero text */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px var(--color-bright-yellow), 0 0 10px var(--color-bright-yellow); }
+    50% { text-shadow: 0 0 10px var(--color-bright-yellow), 0 0 20px var(--color-bright-yellow); }
+    100% { text-shadow: 0 0 5px var(--color-bright-yellow), 0 0 10px var(--color-bright-yellow); }
+}
+
+.glow-text {
+    /* Apply the glow animation to the hero heading */
+    animation: glow 2s infinite alternate;
+}
+
+/* Keyframe animation for a sliding-in effect for elements */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-up {
+    /* Apply the slide-in animation, but don't play it yet */
+    animation: slideInUp 1s ease-out forwards;
+}
+
+/* Keyframe animation for chess piece rotation */
+@keyframes rotateY {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.rotate-piece {
+    /* Apply the continuous rotation animation to the SVG chess pieces */
+    animation: rotateY 5s infinite linear;
+}
+
+/* Chess Piece SVG Styling */
+.chess-piece {
+    /* Style the chess piece SVGs with the theme colors */
+    fill: var(--color-bright-yellow);
+    stroke: var(--color-dark-yellow);
+    stroke-width: 1px;
+}
